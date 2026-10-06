@@ -1,7 +1,8 @@
 # 🍓 Puertos de la Fresa — Sitio Web Profesional
 
 > Sitio web completo para un negocio de fresas con crema: catálogo de productos, pedidos por WhatsApp automatizados, galería con lightbox, reseñas, mapa y diseño responsive.
-
+> 
+https://andresvel3z768.github.io/puertos-de-la-fresa/
 ---
 
 ## 📸 Vista general
@@ -137,7 +138,7 @@ Todo el contenido es editable directamente en los archivos:
 
 ## 👩‍💻 Autoría
 
-Desarrollado por **[Tu Nombre]** — 2026.
-Contacto: [tu-email@ejemplo.com](mailto:tu-email@ejemplo.com) · GitHub: [tu-usuario](https://github.com/tu-usuario)
+Desarrollado por **Andres Mateo** — 2026.
+Contacto: [andres.escobar2649@gmail.com) · GitHub: [tu-usuario](https://github.com/andresvel3z768)
 
 > *Proyecto demo con datos de ejemplo (dirección, teléfono, precios). Lista para producción reemplazando los datos reales según la guía de personalización.*
