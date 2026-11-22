@@ -623,3 +623,8 @@ h1, h2, h3 { font-family: var(--font-title); font-weight: 700; line-height: 1.15
   .wa-float-tip { display: none; }
   .lightbox-nav { width: 44px; height: 44px; font-size: 1.7rem; }
 }
+
+/* Aviso de demostración */
+.demo-notice { position: relative; z-index: 1100; padding: 0.7rem 1rem; background: #6b1730; color: #fff; text-align: center; font-size: 0.95rem; line-height: 1.5; }
+.demo-map { min-height: 340px; display: grid; place-content: center; text-align: center; padding: 2rem; background: #f8e7eb; color: #63223a; font-weight: 600; }
+.demo-map small { font-weight: 400; }
