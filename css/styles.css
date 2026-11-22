@@ -590,12 +590,13 @@ h1, h2, h3 { font-family: var(--font-title); font-weight: 700; line-height: 1.15
 }
 
 @media (max-width: 900px) {
-  .nav-toggle { display: block; }
+  .nav-toggle { display: block; position: relative; z-index: 101; min-width: 44px; min-height: 44px; }
+  .nav-toggle.open span { background: var(--ink); }
   .nav-links {
     position: fixed;
     top: 0; right: -100%;
     width: min(320px, 80vw);
-    height: 100vh;
+    height: 100dvh;
     flex-direction: column;
     align-items: flex-start;
     gap: 1.4rem;
@@ -604,8 +605,10 @@ h1, h2, h3 { font-family: var(--font-title); font-weight: 700; line-height: 1.15
     box-shadow: -20px 0 50px rgba(0, 0, 0, 0.15);
     transition: right 0.4s cubic-bezier(0.22, 1, 0.36, 1);
     z-index: 99;
+    overflow-y: auto;
+    visibility: hidden;
   }
-  .nav-links.open { right: 0; }
+  .nav-links.open { right: 0; visibility: visible; }
   .nav-links a:not(.btn) { color: var(--ink) !important; font-size: 1.05rem; }
   .nav-cta { margin-left: 0; }
   .orders-grid, .contact-grid { grid-template-columns: 1fr; }
@@ -628,3 +631,20 @@ h1, h2, h3 { font-family: var(--font-title); font-weight: 700; line-height: 1.15
 .demo-notice { position: relative; z-index: 1100; padding: 0.7rem 1rem; background: #6b1730; color: #fff; text-align: center; font-size: 0.95rem; line-height: 1.5; }
 .demo-map { min-height: 340px; display: grid; place-content: center; text-align: center; padding: 2rem; background: #f8e7eb; color: #63223a; font-weight: 600; }
 .demo-map small { font-weight: 400; }
+
+/* Mejoras de lectura y controles táctiles en celulares */
+@media (max-width: 640px) {
+  .container { width: min(100% - 2rem, 1160px); }
+  .hero-content { padding: 6.5rem 0 4.5rem; }
+  .demo-notice { font-size: 0.875rem; line-height: 1.45; padding: 0.75rem; border-radius: 0.75rem; }
+  .hero-kicker { margin-top: 1rem; font-size: 0.72rem; letter-spacing: 0.08em; }
+  .hero h1 { font-size: clamp(2rem, 9vw, 2.8rem); }
+  .hero-actions { flex-direction: column; align-items: stretch; gap: 0.75rem; margin-top: 1.5rem; }
+  .hero-actions .btn { width: 100%; min-height: 48px; }
+  .hero-stats { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0.5rem; margin-top: 2rem; }
+  .stat strong { font-size: clamp(1.5rem, 7vw, 2rem); }
+  .stat span { font-size: 0.72rem; letter-spacing: 0; }
+  .order-form input, .order-form select, .order-form textarea { font-size: 1rem; max-width: 100%; }
+  .card-title { flex-wrap: wrap; }
+  .wa-float { right: 1rem; bottom: max(1rem, env(safe-area-inset-bottom)); width: 56px; height: 56px; }
+}
