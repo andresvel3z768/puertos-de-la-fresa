@@ -1,5 +1,7 @@
 # 🍓 Puertos de la Fresa — Sitio Web Profesional
 
+> **Demostración:** negocio, contacto, precios y reseñas ficticios. Los pedidos se muestran como vista previa y no se envían.
+>
 > Sitio web completo para un negocio de fresas con crema: catálogo de productos, pedidos por WhatsApp automatizados, galería con lightbox, reseñas, mapa y diseño responsive.
 > 
 https://andresvel3z768.github.io/puertos-de-la-fresa/
@@ -106,7 +108,7 @@ Todo el contenido es editable directamente en los archivos:
 
 | Qué cambiar | Dónde |
 |---|---|
-| **Número de WhatsApp** | `js/main.js` → constante `WHATSAPP_NUMBER`, y los enlaces `wa.me/5215512345678` en `index.html` |
+| **Número de WhatsApp** | Los botones usan el modo de demostración; configura el número real al adaptar el sitio |
 | **Productos y precios** | `index.html` → bloques `<article class="card">` y `<option>` del formulario |
 | **Colores de marca** | `css/styles.css` → bloque `:root` (`--pink`, `--cream`, `--green`) |
 | **Fotos** | URLs `images.unsplash.com` en `index.html` y `.hero-bg` en `styles.css` |
