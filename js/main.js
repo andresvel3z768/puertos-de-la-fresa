@@ -2,7 +2,13 @@
   const $ = (sel, ctx = document) => ctx.querySelector(sel);
   const $$ = (sel, ctx = document) => [...ctx.querySelectorAll(sel)];
 
-  const WHATSAPP_NUMBER = "5215512345678";
+
+  document.querySelectorAll("[data-demo-whatsapp]").forEach((link) => {
+    link.addEventListener("click", (event) => {
+      event.preventDefault();
+      window.alert("Demostración: este botón se puede conectar al WhatsApp real del negocio. No se enviará ningún mensaje.");
+    });
+  });
 
   /* ---------- Navbar sólida al hacer scroll ---------- */
   const navbar = $("#navbar");
@@ -53,9 +59,9 @@
       const progress = Math.min((now - start) / duration, 1);
       const eased = 1 - Math.pow(1 - progress, 3);
       const value = target * eased;
-      el.textContent = decimal ? (value + 0.5).toFixed(1) : Math.round(value);
+      el.textContent = decimal ? value.toFixed(decimal) : Math.round(value);
       if (progress < 1) requestAnimationFrame(tick);
-      else el.textContent = decimal ? (target + 0.5).toFixed(1) : target + "+";
+      else el.textContent = decimal ? target.toFixed(decimal) : target + "+";
     };
     requestAnimationFrame(tick);
   };
@@ -157,8 +163,7 @@
       .filter(Boolean)
       .join("\n");
 
-    window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`, "_blank");
-    form.reset();
+    window.alert(`Vista previa del pedido (demostración; no se enviará):\n\n${message}`);
   });
 
   form.addEventListener("input", (e) => e.target.classList.remove("invalid"));
