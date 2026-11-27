@@ -2,6 +2,24 @@
   const $ = (sel, ctx = document) => ctx.querySelector(sel);
   const $$ = (sel, ctx = document) => [...ctx.querySelectorAll(sel)];
 
+  // La inclinación responde al puntero sin afectar el uso táctil.
+  const motionAllowed = window.matchMedia("(prefers-reduced-motion: no-preference) and (hover: hover) and (pointer: fine)");
+  $$(".card").forEach((card) => {
+    card.addEventListener("pointermove", (event) => {
+      if (!motionAllowed.matches) return;
+      const rect = card.getBoundingClientRect();
+      if (!rect.width || !rect.height) return;
+      const x = (event.clientX - rect.left) / rect.width - 0.5;
+      const y = (event.clientY - rect.top) / rect.height - 0.5;
+      card.style.setProperty("--tilt-x", `${(-y * 8).toFixed(2)}deg`);
+      card.style.setProperty("--tilt-y", `${(x * 8).toFixed(2)}deg`);
+    });
+    card.addEventListener("pointerleave", () => {
+      card.style.removeProperty("--tilt-x");
+      card.style.removeProperty("--tilt-y");
+    });
+  });
+
 
   document.querySelectorAll("[data-demo-whatsapp]").forEach((link) => {
     link.addEventListener("click", (event) => {

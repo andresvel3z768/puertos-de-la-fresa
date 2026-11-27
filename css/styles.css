@@ -648,3 +648,32 @@ h1, h2, h3 { font-family: var(--font-title); font-weight: 700; line-height: 1.15
   .card-title { flex-wrap: wrap; }
   .wa-float { right: 1rem; bottom: max(1rem, env(safe-area-inset-bottom)); width: 56px; height: 56px; }
 }
+
+/* Profundidad visual con movimiento suave; sin modelos 3D externos. */
+@media (prefers-reduced-motion: no-preference) {
+  .hero { perspective: 1000px; }
+  .hero-content { transform-style: preserve-3d; }
+  .hero-kicker.visible { animation: float-label 5s ease-in-out infinite; }
+  .menu-grid { perspective: 1100px; }
+  .card { transform-style: preserve-3d; }
+  .card-img img { transform: scale(1.04); }
+  .card.visible .card-img img { animation: product-depth 1s cubic-bezier(.2,.7,.2,1) both; }
+  .card-body { position: relative; transform: translateZ(16px); }
+  .card .badge { transform: translateZ(24px); }
+  .card:focus-within { box-shadow: var(--shadow-lg); }
+  @media (hover: hover) and (pointer: fine) {
+    .card.visible:hover {
+      transform: perspective(900px) rotateX(var(--tilt-x, 3deg)) rotateY(var(--tilt-y, -3deg)) translateY(-8px);
+      box-shadow: 0 26px 45px rgba(36, 26, 29, 0.22);
+      transition: transform 0.16s ease-out, box-shadow 0.3s ease;
+    }
+  }
+  @keyframes float-label {
+    0%, 100% { transform: translateY(0) translateZ(0); }
+    50% { transform: translateY(-5px) translateZ(20px); }
+  }
+  @keyframes product-depth {
+    from { transform: perspective(700px) scale(1.14) rotateX(5deg); }
+    to { transform: perspective(700px) scale(1.04) rotateX(0); }
+  }
+}
